@@ -43,13 +43,15 @@ class SocketInput extends haxe.io.Input {
 	}
 }
 
+class SocketOutput {}
+
 @:allow(sys.net.SocketInput)
 class Socket {
 	var s:js.node.net.Socket;
 	var inputData:Array<js.node.Buffer> = [];
 	var inputPos:Int = 0;
 
-	public var input:haxe.io.Input;
+	public var input(default, null):haxe.io.Input;
 
 	public function new() {
 		input = new SocketInput(this);
@@ -72,4 +74,12 @@ class Socket {
 			s = null;
 		}
 	}
+
+	@unimplemented
+	public function shutdown(read:Bool, write:Bool):Void {}
+
+	@unimplemented
+	public function setTimeout(timeout:Float):Void {}
+
+	public var output(default, null):haxe.io.Output;
 }

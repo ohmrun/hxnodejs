@@ -1,0 +1,19 @@
+{
+  "build" : {
+    "-cp" : "src",
+    "unit" : {
+      "--macro" : [
+        "allowPackage('sys')",
+        "define('nodejs')"
+      ],
+      "event" : {
+        "node" : {
+          "--js"    : "build/unit/event/node/unit.js",
+          "--macro" : [
+            "include('sys',true,['sys.thread'])"
+          ]
+        }
+      }
+    }
+  }
+}

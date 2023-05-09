@@ -2,3 +2,5 @@
 /bin
 /examples/*.js
 /release.zip
+/build
+/.env.machine
